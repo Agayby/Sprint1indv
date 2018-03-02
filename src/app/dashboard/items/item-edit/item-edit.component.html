@@ -1,0 +1,10 @@
+<div class="">
+<h3>Item new name:</h3>
+  <input type="text"  #itemName>
+  <br>
+  <h3>Item new Price:</h3>
+  <input type="number" #itemPrice>
+  <br>
+  <br>
+  <button class="btn btn-success" (click) = "onEdit(itemName, itemPrice)" [routerLink] = "['../']">Confirm changes</button>
+</div>

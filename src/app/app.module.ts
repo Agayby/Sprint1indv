@@ -9,15 +9,17 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 
+import { ItemNewComponent } from './app/dashboard/items/item-new/item-new.component';
+
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, ItemNewComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     NgbModule.forRoot(),
     ThemeModule.forRoot(),
     AppRoutingModule
-  ],
+    ],
   bootstrap: [AppComponent],
   providers: [{ provide: APP_BASE_HREF, useValue: '/' }]
 })

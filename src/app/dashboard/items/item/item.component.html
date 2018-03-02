@@ -1,0 +1,9 @@
+<div class="">
+  <button type="button" class="btn btn-primary" (click) ="onEdit(item)" [routerLink] = "['edit']">Edit</button>
+  <button type="button" class="btn btn-danger" (click) = "onDelete()">Delete</button>
+  <h3>Name: {{item.name}}</h3>
+  <h3>Price: {{item.price| currency}}</h3>
+  <h3>Creation Date: {{item.creationDate | date}}</h3>
+  <h3>Update Date: {{item.updateDate | date}}</h3>
+  <h3>Seller Name: {{item.sellerName}}</h3>
+</div>

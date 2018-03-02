@@ -7,33 +7,33 @@ import { Headers } from "@angular/http";
 
 @Injectable()
 export class UserService{
-    
-    constructor(private http:Http){        
-    
+
+    constructor(private http:Http){
+
     }
-    
+
     public user:User;
     public userSubject = new Subject();
 
 
-    register(username:String,password:String){
+    register(username: string,password: string){
         var user = new User(username,password);
 
-        return this.http.post('http://localhost:3000/api/user/createUser',user);
+        return this.http.post('http://localhost:3001/api/user/createUser',user);
     }
 
-    logout(token:String){
+    logout(token: string){
         const headers = new Headers({'x-auth':token});
-        return this.http.delete('http://localhost:3000/api/user/deleteUser',{headers:headers})
+        return this.http.delete('http://localhost:3001/api/user/deleteUser',{headers:headers})
         .subscribe(()=>{
             this.user = null;
             this.userSubject.next(this.user);
         });
     }
 
-    logIn(username:String,password:String){
+    logIn(username: string,password: string){
         var user = new User(username,password);
-        return this.http.post('http://localhost:3000/api/user/loginUser',user);
+        return this.http.post('http://localhost:3001/api/user/loginUser',user);
     }
 
 }
