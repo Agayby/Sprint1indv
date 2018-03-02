@@ -19,12 +19,12 @@ export class UserService{
     register(username: string,password: string){
         var user = new User(username,password);
 
-        return this.http.post('http://localhost:3001/api/user/createUser',user);
+        return this.http.post('http://localhost:3000/api/user/createUser',user);
     }
 
     logout(token: string){
         const headers = new Headers({'x-auth':token});
-        return this.http.delete('http://localhost:3001/api/user/deleteUser',{headers:headers})
+        return this.http.delete('http://localhost:3000/api/user/deleteUser',{headers:headers})
         .subscribe(()=>{
             this.user = null;
             this.userSubject.next(this.user);
@@ -33,7 +33,7 @@ export class UserService{
 
     logIn(username: string,password: string){
         var user = new User(username,password);
-        return this.http.post('http://localhost:3001/api/user/loginUser',user);
+        return this.http.post('http://localhost:3000/api/user/loginUser',user);
     }
 
 }

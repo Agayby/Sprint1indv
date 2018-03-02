@@ -49,7 +49,7 @@ onEdit(item: Item){
   getItems(){
   console.log(this.userService.user);
   const headers = new Headers({'x-auth':this.userService.user.token});
-  this.http.get('http://localhost:3001/api/product/getProducts',{headers:headers})
+  this.http.get('http://localhost:3000/api/product/getProducts',{headers:headers})
 
   .subscribe((res:Response)=>{
   this.items = res.json().data;
@@ -64,7 +64,7 @@ onEdit(item: Item){
 var item = new Item(null,name,price,new Date(),new Date(),this.userService.user.username);
 const headers = new Headers({'x-auth':this.userService.user.token});
 
-this.http.post('http://localhost:3001/api/product/createProduct',item,{headers:headers})
+this.http.post('http://localhost:3000/api/product/createProduct',item,{headers:headers})
 
 .subscribe((res: Response)=>{
 this.getItems();
@@ -77,7 +77,7 @@ console.log(err);
 deleteItem(item:Item){
 
 const headers = new Headers({'x-auth':this.userService.user.token});
-this.http.delete(`http://localhost:3001/api/product/deleteProduct/${item._id}`,{headers:headers})
+this.http.delete(`http://localhost:3000/api/product/deleteProduct/${item._id}`,{headers:headers})
 
 .subscribe((res: Response)=>{
 this.getItems();
@@ -89,7 +89,7 @@ editItem(updatedItem:Item){
 
 const headers = new Headers({'x-auth':this.userService.user.token});
 
-this.http.patch(`http://localhost:3001/api/product/updateProduct/${updatedItem._id}`,updatedItem,{headers:headers})
+this.http.patch(`http://localhost:3000/api/product/updateProduct/${updatedItem._id}`,updatedItem,{headers:headers})
 .subscribe((res: Response)=>{
 this.getItems();
 });
